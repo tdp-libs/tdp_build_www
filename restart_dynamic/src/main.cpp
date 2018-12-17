@@ -1,6 +1,20 @@
 #include <cstdlib>
 #include <iostream>
 
+/*
+TDP_WWW_APP_BINARY
+This should be defined in project.inc as follows:
+DEFINES += TDP_WWW_APP_BINARY=\\\"your_binary_name\\\"
+
+
+TDP_WWW_PROJECT_DIR
+This should be set by the build system in restart_dynamic.pro
+
+
+TDP_WWW_BUILD_DIR
+This should be set by the build system in restart_dynamic.pro
+*/
+
 //##################################################################################################
 int main()
 {

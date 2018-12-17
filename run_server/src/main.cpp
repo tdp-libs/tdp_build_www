@@ -1,6 +1,15 @@
 #include <cstdlib>
 #include <iostream>
 
+/*
+TDP_WWW_PROJECT_DIR
+This should be set by the build system in restart_dynamic.pro
+
+
+TDP_WWW_BUILD_DIR
+This should be set by the build system in restart_dynamic.pro
+*/
+
 //##################################################################################################
 int main()
 {
