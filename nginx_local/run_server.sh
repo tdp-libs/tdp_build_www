@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#killall -w nginx
+while $(pkill -3 nginx 2>/dev/null); do
+    sleep 1
+done
+
 mkdir -p tmp/client_body_temp
 mkdir -p tmp/proxy
 mkdir -p tmp/fastcgi

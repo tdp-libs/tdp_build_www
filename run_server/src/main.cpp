@@ -16,9 +16,15 @@ int main()
   std::cout << TP_WWW_PROJECT_DIR << std::endl;
   std::cout << TP_WWW_BUILD_DIR << std::endl;
 
-  std::system("pwd");
-  std::system("cp -u " TP_WWW_PROJECT_DIR "/tp_build_www/nginx_local/* " TP_WWW_BUILD_DIR);
-  std::system("rm -f " TP_WWW_BUILD_DIR "/log/http.error.log");
-  std::system("cd "  TP_WWW_BUILD_DIR  "; ./run_server.sh");
-  std::system("tail -f " TP_WWW_BUILD_DIR "/log/http.error.log");
+  auto run = [](const std::string& command)
+  {
+    if(std::system(command.c_str()))
+      std::cerr << "Non zero returned from: " << command << std::endl;
+  };
+
+  run("pwd");
+  run("cp -u " TP_WWW_PROJECT_DIR "/tp_build_www/nginx_local/* " TP_WWW_BUILD_DIR);
+  run("rm -f " TP_WWW_BUILD_DIR "/log/http.error.log");
+  run("cd "  TP_WWW_BUILD_DIR  "; ./run_server.sh");
+  run("tail -f " TP_WWW_BUILD_DIR "/log/http.error.log");
 }
