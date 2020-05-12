@@ -18,6 +18,7 @@ This should be set by the build system in restart_dynamic.pro
 //#################################################################################################
 int main(int argc, char* argv[])
 {
+#ifdef TP_LINUX
   std::cout << TP_WWW_APP_BINARY << std::endl;
   std::cout << TP_WWW_PROJECT_DIR << std::endl;
   std::cout << TP_WWW_BUILD_DIR << std::endl;
@@ -35,4 +36,9 @@ int main(int argc, char* argv[])
   run("cp -u " TP_WWW_PROJECT_DIR "/tp_build_www/nginx_local/* " TP_WWW_BUILD_DIR);
   run("pwd");
   run(TP_WWW_BUILD_DIR "/run_app.sh " TP_WWW_BUILD_DIR " " TP_WWW_APP_BINARY + programArgs);
+#else
+  (void)argc;
+  (void)argv;
+  std::cerr << "This only works on Linux." << std::endl;
+#endif
 }
